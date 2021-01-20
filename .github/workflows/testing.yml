@@ -26,5 +26,5 @@ jobs:
       - name: if statement
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-        if: ${{ github.event_name == 'push_request' && contains((join(toJson(github.event.commits.*.message))), "#skip") }}
+        if: ${{ github.event_name == 'push_request' && contains(join(toJson(github.event.commits.*.message)), '#skip') }}
         run: echo "yup .... #skip this"
