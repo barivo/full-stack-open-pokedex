@@ -23,14 +23,9 @@ jobs:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
 
-      - name: if statement
-        env:
-          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-        if: ${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}}}
-        run: echo "yup .... $COMMIT_MESSAGES"
-
       - name: second if statement
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
+
         if: ${{ github.event_name == 'push' && contains(join(toJson(github.event.commits.*.message)), '#skip') }}
-        run: echo "yup .... #skip this etc"
+        run: echo "yup .... skip this etc"
