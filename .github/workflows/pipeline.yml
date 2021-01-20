@@ -42,8 +42,8 @@ jobs:
           DEFAULT_BUMP: patch
 
       - name: The job has failed
+        if: ${{ failure() }}
         uses: 8398a7/action-slack@v3
-        if: ${{ ! success() }}
         with:
           status: custom
           fields: workflow,job,commit,repo,ref,author,took
