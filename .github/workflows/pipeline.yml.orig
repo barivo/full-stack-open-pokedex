@@ -5,7 +5,11 @@ on:
     branches:
       - master
   pull_request:
+<<<<<<< HEAD
+    branches: [master]
+=======
     branches: [master] 
+>>>>>>> master
     types: [opened, synchronize]
 
 jobs:
