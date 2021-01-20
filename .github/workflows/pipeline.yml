@@ -12,18 +12,14 @@ jobs:
   simple_deployment_pipeline:
     runs-on: ubuntu-18.04
     steps:
-      - name: github setup
       - uses: actions/checkout@v2
-
-      - name: node setup
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - name: npm install 
+        run: npm install  
 
-      - name: npm install
-        run: npm install
-
-      - name: build
+      - name: build 
         run: npm run build
 
       - name: lint
@@ -40,4 +36,4 @@ jobs:
         uses: anothrNick/github-tag-action@1.33.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BUMP: patch
+
