@@ -2,7 +2,6 @@ name: HealthCheck
 
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
     - cron:  '3 3-5 * * *'  # runs at the 3rd min of the 3rd to 5th hour UTC
 
 jobs:
