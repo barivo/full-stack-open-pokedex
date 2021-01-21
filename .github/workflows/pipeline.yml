@@ -41,7 +41,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
 
-     - name: Bump version and push tag
+      - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.33.0
         if: ${{ github.event_name == 'push' &&  ( ! contains(join(toJson(github.event.commits.*.message)), '#skip') ) }}
         env:
